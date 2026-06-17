@@ -13,7 +13,7 @@
   # Use the systemd-boot EFI boot loader.
   boot.loader.limine.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
-
+  nix.settings.experimental-features = [ "nix-command" "flakes" ];
   # Use latest kernel.
   boot.kernelPackages = pkgs.linuxPackages_latest;
 

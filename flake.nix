@@ -1,18 +1,38 @@
 {
-description = "Мой первый конфиг"; #Любое название в "" btw
+  description = "Мой первый конфиг с Home Manager";
 
-inputs = {
-# Откуда берем пакеты (нестабильная ветка - самая свежая)
-nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
-};
+  inputs = {
+    # Основной репозиторий пакетов (unstable)
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+    zen-browser.url = "github:0xc000022070/zen-browser-flake";
+    # Правильное подключение Home Manager
+    home-manager = {
+      url = "github:nix-community/home-manager";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+  };
 
-outputs = { self, nixpkgs, ... }: {
-# Замени 'nixos' на свое имя хоста (hostname)
-nixosConfigurations.nixos = nixpkgs.lib.nixosSystem {
-system = "x86_64-linux"; # если у вас arm то поменяйте, я че ебу че там
-modules = [
-./configuration.nix # Твой кфг
-./hardware-configuration.nix
-];
-};
-};
+  outputs = inputs @ { self, nixpkgs, zen-browser, home-manager, ... }: {
+    nixosConfigurations.nixos = nixpkgs.lib.nixosSystem {
+      system = "x86_64-linux";
+      specialArgs = { inherit inputs; };
+      modules = [
+        ./hardware-configuration.nix
+        ./configuration.nix
+	
+        # Настройка Home Manager внутри системного конфига
+        home-manager.nixosModules.home-manager
+        {
+          home-manager.extraSpecialArgs = { inherit inputs; };
+            home-manager.users.zumuvik = { config, pkgs, ... }: {
+            imports = [ 
+              inputs.zen-browser.homeModules.default 
+              ./home.nix 
+       ];
+      };
+      }
+     ];
+    };
+  };
+}
+

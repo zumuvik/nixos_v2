@@ -24,12 +24,18 @@
 #  services.greetd.enable = true;
   # Set your time zone.
    time.timeZone = "Europe/Moscow";
-  programs.sway.enable = true;
-  # Configure network proxy if necessary
+   programs.hyprland = {
+    enable = true;
+    package = pkgs.hyprland; # Вот тут мы говорим NixOS использовать SwayFX вместо обычного Sway
+  };
+
+ # Configure network proxy if necessary
   # networking.proxy.default = "http://user:password@proxy:port/";
   # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
 
-  # Select internationalisation properties.
+   programs.throne.tunMode.enable = true;
+   networking.firewall.checkReversePath = "loose";
+   programs.throne.enable = true;
    i18n.defaultLocale = "en_US.UTF-8";
    console = {
      font = "Lat2-Terminus16";
@@ -93,7 +99,7 @@ console.useXkbConfig = true;
      isNormalUser = true;
      extraGroups = [ "networkmanager" "wheel" "video" "audio" "input" ]; # Enable ‘sudo’ for the user.
      packages = with pkgs; [
-    vscodium python3 python3Packages.pip brightnessctl
+    vscodium python3 python3Packages.pip brightnessctl ayugram-desktop
      ];
    };
 

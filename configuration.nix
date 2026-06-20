@@ -8,6 +8,7 @@
   imports =
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
+      ./core
     ];
 
   # Use the systemd-boot EFI boot loader.
@@ -17,27 +18,23 @@
   # Use latest kernel.
   boot.kernelPackages = pkgs.linuxPackages_latest;
 
-  networking.hostName = "nixos"; # Define your hostname.
+  programs.zsh.enable = true;
 
   # Configure network connections interactively with nmcli or nmtui.
-  networking.networkmanager.enable = true;
-#  services.greetd.enable = true;
+   services.greetd.enable = true;
   # Set your time zone.
-   time.timeZone = "Europe/Moscow";
-   programs.hyprland = {
+     programs.hyprland = {
     enable = true;
     package = pkgs.hyprland; # Вот тут мы говорим NixOS использовать SwayFX вместо обычного Sway
   };
-
+  hardware.graphics.enable = true;
  # Configure network proxy if necessary
   # networking.proxy.default = "http://user:password@proxy:port/";
   # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
 
    programs.throne.tunMode.enable = true;
-   networking.firewall.checkReversePath = "loose";
-   programs.throne.enable = true;
-   i18n.defaultLocale = "en_US.UTF-8";
-   console = {
+      programs.throne.enable = true;
+      console = {
      font = "Lat2-Terminus16";
     # keyMap = "us"; # use xkb.options in tty.
    };
@@ -82,7 +79,7 @@ console.useXkbConfig = true;
   # Enable sound.
    #services.pulseaudio.enable = true;
   # OR
-#    security.rtkit.enable = true;
+  security.rtkit.enable = true;
   services.pipewire = {
     enable = true;
     alsa.enable = true;
@@ -97,6 +94,7 @@ console.useXkbConfig = true;
   # Define a user account. Don't forget to set a password with ‘passwd’.
    users.users.zumuvik = {
      isNormalUser = true;
+     shell = pkgs.zsh;
      extraGroups = [ "networkmanager" "wheel" "video" "audio" "input" ]; # Enable ‘sudo’ for the user.
      packages = with pkgs; [
     vscodium python3 python3Packages.pip brightnessctl ayugram-desktop
@@ -123,12 +121,7 @@ console.useXkbConfig = true;
   # Enable the OpenSSH daemon.
   # services.openssh.enable = true;
 
-  # Open ports in the firewall.
-  # networking.firewall.allowedTCPPorts = [ ... ];
-  # networking.firewall.allowedUDPPorts = [ ... ];
-  # Or disable the firewall altogether.
-  # networking.firewall.enable = false;
-
+ 
   # Copy the NixOS configuration file and link it from the resulting system
   # (/run/current-system/configuration.nix). This is useful in case you
   # accidentally delete configuration.nix.

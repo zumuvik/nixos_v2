@@ -28,9 +28,8 @@
     # Опции самого Oh My Zsh
     oh-my-zsh = {
       enable = true;
-      theme = "robbyrussell"; # популярные: agnostes, bira, candy
+      theme = "wedisagree"; # популярные: agnostes, bira, candy
       plugins = [
-        "git"
         "sudo"       # дважды тыкаешь Esc — подставляет sudo к прошлой команде
         "command-not-found" # подскажет, какой пакет поставить, если команды нет
       ];

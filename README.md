@@ -1,4 +1,4 @@
-```text
+```nix
 tree /etc/nixos
 ├── configuration.nix
 ├── flake.lock

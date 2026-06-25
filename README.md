@@ -1,3 +1,4 @@
+```text
 tree /etc/nixos
 ├── configuration.nix
 ├── flake.lock
@@ -29,4 +30,5 @@ tree /etc/nixos
 └── README.md
 
 7 directories, 22 files
+```
 

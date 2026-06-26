@@ -1,5 +1,7 @@
 { ... }: {
 imports = [
- ./wofi
+ ./wofi.nix
+ ./swaylock.nix
+ ./swayidle.nix
  ];
  }

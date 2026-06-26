@@ -4,7 +4,8 @@
   home.homeDirectory = "/home/zumuvik";
   
   imports = [
-    ./modules/programs  
+    ./modules/programs
+    ./profile/desktop
   ];  
 
   home.stateVersion = "26.11";

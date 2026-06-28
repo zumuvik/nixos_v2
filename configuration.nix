@@ -9,6 +9,7 @@
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
       ./profile/core
+      ./profile/gaming
     ];
 
   # Use the systemd-boot EFI boot loader.
@@ -17,6 +18,7 @@
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
   # Use latest kernel.
   boot.kernelPackages = pkgs.linuxPackages_latest;
+  nixpkgs.config.allowUnfree = true;
 
   programs.zsh.enable = true;
 

@@ -28,6 +28,7 @@
     nixd
     nixpkgs-fmt
     
-    # пример: fastfetch
+    # Для MCP серверов
+    nodejs
   ];
 }

@@ -20,10 +20,10 @@
   outputs = inputs @ { self, nixpkgs, zen-browser, home-manager, opencode-nix, nix-vscode-extensions, ... }: {
     nixosConfigurations.nixos = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
-      specialArgs = { inherit inputs; };
-      modules = [
-        ./hardware-configuration.nix
-        ./configuration.nix
+          specialArgs = { inherit inputs; };
+          modules = [
+            ./hardware-configuration.nix
+            ./configuration.nix
         
         # Подключаем оверлеи, чтобы новые пакеты были доступны в pkgs
         {

@@ -1,25 +1,24 @@
-{ pkgs, ... }: {
-programs.swaylock = {
-  enable = true;
-  package = pkgs.swaylock-effects;
-  settings = {
-    clock = true;
-    timestr = "%R";
-    datestr = "%a, %e %b";
-    
-    screenshots = true;
-    fade-in = "0.2";
-    effect-blur = "7x5";
-    effect-vignette = "0.5:0.5";
-    
-    indicator = true;
-    indicator-radius = 100;
-    indicator-thickness = 7;
-    
-    line-color = "00000000";
-    ring-color = "b4befe";
-    inside-color = "1e1e2e";
-    key-hl-color = "a6e3a1";
+{ config, pkgs, ... }: {
+  programs.swaylock = {
+    enable = true;
+    settings = {
+      ignore-empty-password = false;
+      show-failed-attempts = true;
+      line-color = "ffffff";
+      inside-color = "00000088";
+      ring-color = "ffffff";
+      key-hl-color = "89b4fa";
+      text-color = "ffffff";
+      separator-color = "00000000";
+      text-caps-lock-color = "f9e2af";
+      inside-clear-color = "a6e3a1";
+      ring-clear-color = "a6e3a1";
+      inside-ver-color = "89b4fa";
+      ring-ver-color = "89b4fa";
+      inside-wrong-color = "f38ba8";
+      ring-wrong-color = "f38ba8";
+      font-size = 24;
+    };
   };
-};
+
 }

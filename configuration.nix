@@ -10,6 +10,7 @@
       ./hardware-configuration.nix
       ./profile/core
       ./profile/gaming
+      ./profile/desktop/phonect.nix
     ];
 
   # Use the systemd-boot EFI boot loader.
@@ -94,15 +95,7 @@ console.useXkbConfig = true;
    services.libinput.enable = true;
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
-   users.users.zumuvik = {
-     isNormalUser = true;
-     shell = pkgs.zsh;
-     extraGroups = [ "networkmanager" "wheel" "video" "audio" "input" ]; # Enable ‘sudo’ for the user.
-     packages = with pkgs; [
-    vscodium python3 python3Packages.pip brightnessctl ayugram-desktop gh
-     ];
-   };
-
+  
    programs.firefox.enable = true;
 
   # List packages installed in system profile.

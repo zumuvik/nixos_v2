@@ -2,8 +2,10 @@
 
 {
 
-swapDevices = [ {
-    device = "/swap/swapfile";
-    priority = 1;           # Низкий приоритет: включится, только если ZRAM переполнится
-  } ];
+  swapDevices = [
+    {
+      device = "/swap/swapfile";
+      priority = 1; # Низкий приоритет: включится, только если ZRAM переполнится
+    }
+  ];
 }

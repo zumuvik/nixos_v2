@@ -14,11 +14,10 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    
   };
 
   outputs =
-    inputs @ {
+    inputs@{
       self,
       nixpkgs,
       zen-browser,

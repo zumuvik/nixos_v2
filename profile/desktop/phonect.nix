@@ -1,4 +1,10 @@
-{ config, lib, pkgs, ... }: {
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}:
+{
   # phonect — P2P biometric unlock daemon
   # https://github.com/zumuvik/phonect
   services.phonect = {

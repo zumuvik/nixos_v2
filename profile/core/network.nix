@@ -2,10 +2,8 @@
 
 {
   networking = {
-    hostName = "nixos"; 
-    networkmanager.enable = true; 
-    
-    
+    hostName = "nixos";
+    networkmanager.enable = true;
+
   };
 }
-

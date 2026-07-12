@@ -1,7 +1,7 @@
 { ... }: {
   imports = [
     ./wofi.nix
-     ./swaylock.nix
+    ./swaylock.nix
     ./swayidle.nix
     ./hyprland
   ];

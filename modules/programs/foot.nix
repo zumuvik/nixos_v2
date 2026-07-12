@@ -3,12 +3,12 @@
 {
   programs.foot = {
     enable = true;
-   server.enable = false; 
+    server.enable = false;
 
     settings = {
       main = {
         term = "xterm-256color";
-	dpi-aware = "yes";
+        dpi-aware = "yes";
         pad = "10x10"; # Внутренние отступы от краев окна, чтобы код не лип
       };
 
@@ -25,7 +25,7 @@
         alpha = "0.95"; # Небольшая прозрачность, если композитор поддерживает
         background = "1a1b26";
         foreground = "a9b1d6";
-        
+
         # Палитра (пример для темы типа Tokyo Night)
         regular0 = "414868"; # black
         regular1 = "f7768e"; # red

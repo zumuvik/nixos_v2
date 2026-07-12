@@ -1,12 +1,17 @@
-{ config, pkgs, inputs, ... }:
+{
+  config,
+  pkgs,
+  inputs,
+  ...
+}:
 {
   home.username = "zumuvik";
   home.homeDirectory = "/home/zumuvik";
-  
+
   imports = [
     ./modules/programs
     ./profile/desktop
-  ];  
+  ];
 
   home.stateVersion = "26.11";
 
@@ -21,13 +26,13 @@
 
   home.packages = with pkgs; [
     # Устанавливаем сам OpenCode (GUI и консольный)
-    opencode-desktop 
+    opencode-desktop
     opencode
-    
+
     # Инструменты для автокомплита и форматирования .nix файлов
     nixd
     nixpkgs-fmt
-    
+
     # Для MCP серверов
     nodejs
   ];

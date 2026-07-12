@@ -3,7 +3,7 @@
 {
   programs.zsh = {
     enable = true;
-    
+
     # Автодополнение и умный поиск
     enableCompletion = true;
     autosuggestion.enable = true;
@@ -15,7 +15,7 @@
       save = 10000;
       path = "$HOME/.zsh_history";
       ignoreDups = true; # не сохранять дубликаты подряд
-      share = true;      # шарить историю между вкладками терминала
+      share = true; # шарить историю между вкладками терминала
     };
 
     # Твои кастомные алиасы (сокращения)
@@ -30,7 +30,7 @@
       enable = true;
       theme = "wedisagree"; # популярные: agnostes, bira, candy
       plugins = [
-        "sudo"       # дважды тыкаешь Esc — подставляет sudo к прошлой команде
+        "sudo" # дважды тыкаешь Esc — подставляет sudo к прошлой команде
         "command-not-found" # подскажет, какой пакет поставить, если команды нет
       ];
     };

@@ -97,12 +97,13 @@ console.useXkbConfig = true;
   # Define a user account. Don't forget to set a password with ‘passwd’.
   
    programs.firefox.enable = true;
-
+   security.polkit.enable = true;
+   
   # List packages installed in system profile.
   # You can use https://search.nixos.org/ to find more packages (and options).
    environment.systemPackages = with pkgs; [
     neovim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
-     wget foot tree fastfetch git pavucontrol
+     wget foot tree fastfetch git pavucontrol hyprpolkitagent nftables
    ];
 
   # Some programs nees SUID wrappers, can be configured further or are started in user sessions. programs.mtr.enable = true;

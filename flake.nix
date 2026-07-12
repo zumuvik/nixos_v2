@@ -11,13 +11,12 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+        
+       codebase-memory-mcp = {
+      url = "github:DeusData/codebase-memory-mcp";
+      inputs.nixpkgs.follows = "nixpkgs";
 
-    # Добавляем OpenCode и расширения VSCode
-    opencode-nix.url = "github:dan-online/opencode-nix";
-    nix-vscode-extensions.url = "github:nix-community/nix-vscode-extensions";
-  };
-
-  outputs = inputs @ { self, nixpkgs, zen-browser, home-manager, opencode-nix, nix-vscode-extensions, ... }: {
+  outputs = inputs @ { self, nixpkgs, zen-browser, home-manager, codebase-memory-mcp, ... }: {
     nixosConfigurations.nixos = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
           specialArgs = { inherit inputs; };

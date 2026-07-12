@@ -1,8 +1,6 @@
 { config, lib, pkgs, ... }: {
   # phonect — P2P biometric unlock daemon
   # https://github.com/zumuvik/phonect
-  imports = [ /home/zumuvik/project/phonect/phonect-service.nix ];
-
   services.phonect = {
     enable = true;
     settings = {

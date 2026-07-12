@@ -4,6 +4,10 @@
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     zen-browser.url = "github:0xc000022070/zen-browser-flake";
+    phonect = {
+      url = "github:zumuvik/phonect";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
 
     home-manager = {
       url = "github:nix-community/home-manager";
@@ -32,6 +36,7 @@
         modules = [
           ./hardware-configuration.nix
           ./configuration.nix
+          inputs.phonect.nixosModules.default
           home-manager.nixosModules.home-manager
 
           {

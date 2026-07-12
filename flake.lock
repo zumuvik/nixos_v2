@@ -73,10 +73,31 @@
         "type": "github"
       }
     },
+    "phonect": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1783893364,
+        "narHash": "sha256-fBWoPD8N2olIeQ0T29L2tBeLoHh8ZI9WkHZEZNCRcpo=",
+        "owner": "zumuvik",
+        "repo": "phonect",
+        "rev": "0243b431d4a6810d26ab3d21b768e220fec8e564",
+        "type": "github"
+      },
+      "original": {
+        "owner": "zumuvik",
+        "repo": "phonect",
+        "type": "github"
+      }
+    },
     "root": {
       "inputs": {
         "home-manager": "home-manager",
         "nixpkgs": "nixpkgs",
+        "phonect": "phonect",
         "zen-browser": "zen-browser"
       }
     },

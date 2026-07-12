@@ -1,0 +1,38 @@
+name: Check NixOS configuration
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Install Nix
+        uses: DeterminateSystems/nix-installer-action@v19
+
+      - name: Enable Nix cache
+        uses: DeterminateSystems/magic-nix-cache-action@v13
+
+      - name: Check flake
+        run: nix flake check --all-systems
+
+      - name: Check formatting
+        run: nix run nixpkgs#nixfmt-tree -- --fail-on-change .
+
+      - name: Build NixOS configuration
+        run: |
+          nix build \
+            .#nixosConfigurations.nixos.config.system.build.toplevel \
+            --no-link \
+            --print-build-logs

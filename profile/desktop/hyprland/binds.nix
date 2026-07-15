@@ -17,6 +17,7 @@
       "$mainMod, D, exec, tofi-drun --drun-launch=true"
       "$mainMod, space, togglefloating"
       "SUPER, Tab, workspace, e+1"
+       "SUPER SHIFT, S, exec, /home/zumuvik/.local/bin/screenshot"
       # Window Navigation
       "$mainMod, left, movefocus, l"
       "$mainMod, right, movefocus, r"

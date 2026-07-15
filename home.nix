@@ -11,6 +11,7 @@
   imports = [
     ./modules/programs
     ./profile/desktop
+    ./profile/desktop/hyprland/scripts
     ./modules/home
   ];
 
@@ -37,6 +38,11 @@
     # Для MCP серверов
     nodejs
     nwg-displays
+    grim
+    slurp
+    wl-clipboard
+    jq
+    libnotify
     
   ];
 }

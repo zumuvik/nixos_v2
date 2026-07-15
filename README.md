@@ -1,12 +1,20 @@
 ```nix
-tree /etc/nixos
+.
 ├── configuration.nix
 ├── flake.lock
 ├── flake.nix
 ├── hardware-configuration.nix
+├── hardware-configuration.nix.bak
+├── hardware-configuration.nix.bakv2
 ├── home.nix
 ├── LICENSE
 ├── modules
+│   ├── home
+│   │   ├── default.nix
+│   │   └── git.nix
+│   ├── nixos
+│   │   ├── default.nix
+│   │   └── greetd.nix
 │   ├── programs
 │   │   ├── default.nix
 │   │   ├── foot.nix
@@ -25,10 +33,35 @@ tree /etc/nixos
 │   │   ├── swap.nix
 │   │   ├── users.nix
 │   │   └── zram.nix
-│   └── desktop
-│       └── default.nix
+│   ├── desktop
+│   │   ├── default.nix
+│   │   ├── hyprland
+│   │   │   ├── binds.nix
+│   │   │   ├── debug.nix
+│   │   │   ├── default.nix
+│   │   │   ├── dwindle.nix
+│   │   │   ├── env.nix
+│   │   │   ├── exec-once.nix
+│   │   │   ├── hyprland.nix
+│   │   │   ├── input.nix
+│   │   │   ├── misc.nix
+│   │   │   ├── monitors.nix
+│   │   │   ├── scripts
+│   │   │   │   ├── default.nix
+│   │   │   │   └── screenshot.nix
+│   │   │   ├── style.nix
+│   │   │   ├── temple.nix
+│   │   │   └── windowrule.nix
+│   │   ├── phonect.nix
+│   │   ├── swayidle.nix
+│   │   ├── swaylock.nix
+│   │   └── tofi.nix
+│   └── gaming
+│       ├── default.nix
+│       └── steam.nix
 └── README.md
 
-7 directories, 22 files
+12 directories, 49 files
+
 ```
 

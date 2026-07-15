@@ -11,12 +11,11 @@
 
 {
   imports = [
-    # Include the results of the hardware scan.
-    ./hardware-configuration.nix
-    ./profile/core
-    ./profile/gaming
-    ./profile/desktop/phonect.nix
-    ./modules/nixos
+    # Include the results of the hardware scan
+    ../../profile/core
+    ../../profile/gaming
+    ../../profile/desktop/phonect.nix
+    ../../modules/nixos
   ];
 
   # Use the systemd-boot EFI boot loader.
@@ -31,6 +30,7 @@
   nixpkgs.config.allowUnfree = true;
   services.desktopManager.plasma6.enable = true;
   programs.zsh.enable = true;
+  networking.hostName = "nixlensk321";
 
   # Configure network connections interactively with nmcli or nmtui.
   #  services.greetd.enable = true;

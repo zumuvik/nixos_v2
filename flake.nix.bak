@@ -1,18 +1,16 @@
 {
-  description = "NixOS configuration for nixlensk321 and nixlensk322";
+  description = "Мой первый конфиг с Home Manager";
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
-
-    home-manager = {
-      url = "github:nix-community/home-manager";
+    zen-browser.url = "github:0xc000022070/zen-browser-flake";
+    phonect = {
+      url = "github:zumuvik/phonect";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    zen-browser.url = "github:0xc000022070/zen-browser-flake";
-
-    phonect = {
-      url = "github:zumuvik/phonect";
+    home-manager = {
+      url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
@@ -20,16 +18,20 @@
       url = "github:SteamClientHomebrew/Millennium?dir=packages/nix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+
   };
 
   outputs =
     inputs@{
+      self,
       nixpkgs,
+      zen-browser,
       home-manager,
       ...
     }:
     {
-      nixosConfigurations.nixlensk321 = nixpkgs.lib.nixosSystem {
+      nixosConfigurations.nixos = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
 
         specialArgs = {
@@ -37,8 +39,8 @@
         };
 
         modules = [
-          ./hosts/nixlensk321
-
+          ./hardware-configuration.nix
+          ./configuration.nix
           inputs.phonect.nixosModules.default
           home-manager.nixosModules.home-manager
 
@@ -47,7 +49,7 @@
               inherit inputs;
             };
 
-            home-manager.users.zumuvik = {
+            home-manager.users.zumuvik = { config, pkgs, ... }: {
               imports = [
                 inputs.zen-browser.homeModules.default
                 ./home.nix

@@ -28,33 +28,41 @@
       home-manager,
       ...
     }:
-    {
-      nixosConfigurations.nixlensk321 = nixpkgs.lib.nixosSystem {
-        system = "x86_64-linux";
+    let
+      mkHost =
+        hostName:
+        nixpkgs.lib.nixosSystem {
+          system = "x86_64-linux";
 
-        specialArgs = {
-          inherit inputs;
+          specialArgs = {
+            inherit inputs;
+          };
+
+          modules = [
+            (./hosts + "/${hostName}")
+
+            inputs.phonect.nixosModules.default
+            home-manager.nixosModules.home-manager
+
+            {
+              home-manager.extraSpecialArgs = {
+                inherit inputs;
+              };
+
+              home-manager.users.zumuvik = {
+                imports = [
+                  inputs.zen-browser.homeModules.default
+                  ./home.nix
+                ];
+              };
+            }
+          ];
         };
-
-        modules = [
-          ./hosts/nixlensk321
-
-          inputs.phonect.nixosModules.default
-          home-manager.nixosModules.home-manager
-
-          {
-            home-manager.extraSpecialArgs = {
-              inherit inputs;
-            };
-
-            home-manager.users.zumuvik = {
-              imports = [
-                inputs.zen-browser.homeModules.default
-                ./home.nix
-              ];
-            };
-          }
-        ];
+    in
+    {
+      nixosConfigurations = {
+        nixlensk321 = mkHost "nixlensk321";
+        nixlensk322 = mkHost "nixlensk322";
       };
     };
 }

@@ -28,7 +28,7 @@
   # Use latest kernel.
   boot.kernelPackages = pkgs.linuxPackages_latest;
   nixpkgs.config.allowUnfree = true;
-  services.desktopManager.plasma6.enable = true;
+
   programs.zsh.enable = true;
   networking.hostName = "nixlensk322";
 

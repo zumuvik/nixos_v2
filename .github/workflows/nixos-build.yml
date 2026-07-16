@@ -43,7 +43,7 @@ jobs:
       - name: Connect Cachix
         uses: cachix/cachix-action@v17
         with:
-          name: zumuvik-nixos
+          name: zumuvik
           authToken: ${{ secrets.CACHIX_AUTH_TOKEN }}
 
       - name: Build NixOS configuration

@@ -9,6 +9,11 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    codebase-memory-mcp = {
+    url = "github:DeusData/codebase-memory-mcp";
+    inputs.nixpkgs.follows = "nixpkgs";
+   };
+
     zen-browser.url = "github:0xc000022070/zen-browser-flake";
 
     phonect = {
@@ -26,6 +31,7 @@
     inputs@{
       nixpkgs,
       home-manager,
+      codebase-memory-mcp,
       ...
     }:
     let

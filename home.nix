@@ -13,6 +13,7 @@
     ./profile/desktop
     ./profile/desktop/hyprland/scripts
     ./modules/home
+    ./modules/home/opencode
   ];
 
   home.stateVersion = "26.11";

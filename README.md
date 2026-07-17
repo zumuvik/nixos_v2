@@ -4,6 +4,7 @@
 .
 ├── .github
 │   └── workflows
+│       ├── auto-update.yml
 │       ├── nixos-build.yml
 │       └── update-tree.yaml
 ├── hosts
@@ -80,6 +81,6 @@
 ├── flake.nix
 └── home.nix
 
-19 directories, 59 files
+19 directories, 60 files
 
 ```

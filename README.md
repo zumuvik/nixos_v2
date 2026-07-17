@@ -78,11 +78,8 @@
 ├── README.md
 ├── flake.lock
 ├── flake.nix
-├── flake.nix.bak
-├── hardware-configuration.nix.bak
-├── hardware-configuration.nix.bakv2
 └── home.nix
 
-19 directories, 62 files
+19 directories, 59 files
 
 ```

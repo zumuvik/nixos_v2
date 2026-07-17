@@ -4,9 +4,10 @@
   programs.git = {
     enable = true;
 
-    userName = "zumuvik";
-    userEmail = "toovalvedota2@gmail.com";
-
+    user = {
+    name = "zumuvik";
+    email = "toovalvedota2@gmail.com";
+    };
     settings = {
       push.autoSetupRemote = true;
 

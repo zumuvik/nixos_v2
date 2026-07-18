@@ -9,6 +9,7 @@
   # https://github.com/zumuvik/phonect
   services.phonect = {
     enable = true;
+    user = "zumuvik";
     settings = {
       keys.private_key = "/home/zumuvik/.config/phonect/pc_private.pem";
       keys.public_key = "/home/zumuvik/.config/phonect/trusted_device.pub";

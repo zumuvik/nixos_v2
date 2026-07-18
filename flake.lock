@@ -140,11 +140,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1783933916,
-        "narHash": "sha256-Va6KO2lMdmQjSLb1THEfSDxVkXyKpSiJKs/l17dKlJI=",
+        "lastModified": 1784417709,
+        "narHash": "sha256-NKrgqTDpZfcMGYIXSAqa869McE0P9ymaFZPPcjAjWrY=",
         "owner": "zumuvik",
         "repo": "phonect",
-        "rev": "f80b92a510ccf8bd35ee350c9b0bf882e735866e",
+        "rev": "2048fc0d9c94db1d072afae01f2ecd688e187907",
         "type": "github"
       },
       "original": {

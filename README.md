@@ -28,6 +28,8 @@ Personal NixOS configuration for `nixlensk321` and `nixlensk322`.
 │   │   ├── default.nix
 │   │   └── git.nix
 │   ├── nixos
+│   │   ├── android
+│   │   │   └── android-tools.nix
 │   │   ├── bluetooth
 │   │   │   ├── blueman.nix
 │   │   │   └── bluetooth.nix
@@ -87,7 +89,7 @@ Personal NixOS configuration for `nixlensk321` and `nixlensk322`.
 ├── home.nix
 └── repository-tree.txt
 
-20 directories, 62 files
+21 directories, 63 files
 
 ```
 <!-- TREE:END -->

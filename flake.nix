@@ -10,9 +10,9 @@
     };
 
     codebase-memory-mcp = {
-    url = "github:DeusData/codebase-memory-mcp";
-    inputs.nixpkgs.follows = "nixpkgs";
-   };
+      url = "github:DeusData/codebase-memory-mcp";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
 
     zen-browser.url = "github:0xc000022070/zen-browser-flake";
 
@@ -30,15 +30,25 @@
   outputs =
     inputs@{
       nixpkgs,
-      home-manager,
-      codebase-memory-mcp,
       ...
     }:
     let
+      system = "x86_64-linux";
+
+      pkgs = nixpkgs.legacyPackages.${system};
+
+      nixFiles = ''
+        find . \
+          -name .git -prune -o \
+          -name result -prune -o \
+          -name 'result-*' -prune -o \
+          -name '*.nix' -print
+      '';
+
       mkHost =
         hostName:
         nixpkgs.lib.nixosSystem {
-          system = "x86_64-linux";
+          inherit system;
 
           specialArgs = {
             inherit inputs;
@@ -48,7 +58,7 @@
             (./hosts + "/${hostName}")
 
             inputs.phonect.nixosModules.default
-            home-manager.nixosModules.home-manager
+            inputs.home-manager.nixosModules.home-manager
 
             {
               home-manager.extraSpecialArgs = {
@@ -69,6 +79,58 @@
       nixosConfigurations = {
         nixlensk321 = mkHost "nixlensk321";
         nixlensk322 = mkHost "nixlensk322";
+      };
+
+      formatter.${system} = pkgs.nixfmt-rfc-style;
+
+      checks.${system} = {
+        nixfmt =
+          pkgs.runCommand "nixfmt-check"
+            {
+              nativeBuildInputs = [ pkgs.nixfmt-rfc-style ];
+              src = ./.;
+            }
+            ''
+              cp -r "$src" source
+              chmod -R u+w source
+              cd source
+
+              ${nixFiles} | xargs nixfmt --check
+
+              touch "$out"
+            '';
+
+        statix =
+          pkgs.runCommand "statix-check"
+            {
+              nativeBuildInputs = [ pkgs.statix ];
+              src = ./.;
+            }
+            ''
+              cp -r "$src" source
+              chmod -R u+w source
+              cd source
+
+              statix check .
+
+              touch "$out"
+            '';
+
+        deadnix =
+          pkgs.runCommand "deadnix-check"
+            {
+              nativeBuildInputs = [ pkgs.deadnix ];
+              src = ./.;
+            }
+            ''
+              cp -r "$src" source
+              chmod -R u+w source
+              cd source
+
+              ${nixFiles} | xargs deadnix --fail
+
+              touch "$out"
+            '';
       };
     };
 }

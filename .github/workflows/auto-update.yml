@@ -68,6 +68,10 @@ jobs:
             git diff --stat -- flake.lock
           fi
 
+      - name: Check flake, formatting and linting
+        if: success() && steps.changes.outputs.changed == 'true'
+        run: nix flake check --print-build-logs
+
       - name: Build all NixOS configurations
         if: success() && steps.changes.outputs.changed == 'true'
         shell: bash

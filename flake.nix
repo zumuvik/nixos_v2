@@ -81,13 +81,13 @@
         nixlensk322 = mkHost "nixlensk322";
       };
 
-      formatter.${system} = pkgs.nixfmt-rfc-style;
+      formatter.${system} = pkgs.nixfmt;
 
       checks.${system} = {
         nixfmt =
           pkgs.runCommand "nixfmt-check"
             {
-              nativeBuildInputs = [ pkgs.nixfmt-rfc-style ];
+              nativeBuildInputs = [ pkgs.nixfmt ];
               src = ./.;
             }
             ''
@@ -95,7 +95,7 @@
               chmod -R u+w source
               cd source
 
-              ${nixFiles} | xargs nixfmt --check
+              (${nixFiles}) | xargs --no-run-if-empty nixfmt --check
 
               touch "$out"
             '';
@@ -127,7 +127,7 @@
               chmod -R u+w source
               cd source
 
-              ${nixFiles} | xargs deadnix --fail
+              (${nixFiles}) | xargs --no-run-if-empty deadnix --no-lambda-pattern-names --fail
 
               touch "$out"
             '';

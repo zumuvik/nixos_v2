@@ -28,10 +28,11 @@ Personal NixOS configuration for `nixlensk321` and `nixlensk322`.
 │   │   ├── default.nix
 │   │   └── git.nix
 │   ├── nixos
+│   │   ├── bluetooth
+│   │   │   ├── blueman.nix
+│   │   │   └── bluetooth.nix
 │   │   ├── caches
 │   │   │   └── cachix.nix
-│   │   ├── blueman.nix
-│   │   ├── bluetooth.nix
 │   │   ├── default.nix
 │   │   └── greetd.nix
 │   ├── programs
@@ -82,9 +83,10 @@ Personal NixOS configuration for `nixlensk321` and `nixlensk322`.
 ├── README.md
 ├── flake.lock
 ├── flake.nix
-└── home.nix
+├── home.nix
+└── repository-tree.txt
 
-19 directories, 60 files
+20 directories, 61 files
 
 ```
 <!-- TREE:END -->

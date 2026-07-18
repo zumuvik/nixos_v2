@@ -34,7 +34,8 @@ Personal NixOS configuration for `nixlensk321` and `nixlensk322`.
 │   │   ├── caches
 │   │   │   └── cachix.nix
 │   │   ├── default.nix
-│   │   └── greetd.nix
+│   │   ├── greetd.nix
+│   │   └── openssh.nix
 │   ├── programs
 │   │   ├── default.nix
 │   │   ├── foot.nix
@@ -86,7 +87,7 @@ Personal NixOS configuration for `nixlensk321` and `nixlensk322`.
 ├── home.nix
 └── repository-tree.txt
 
-20 directories, 61 files
+20 directories, 62 files
 
 ```
 <!-- TREE:END -->

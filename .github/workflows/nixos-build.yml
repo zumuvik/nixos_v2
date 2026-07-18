@@ -34,18 +34,28 @@ jobs:
 
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
 
       - name: Install Nix
         uses: cachix/install-nix-action@v31
         with:
           github_access_token: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Connect Cachix
+      - name: Connect Cachix read-only
+        if: github.event_name == 'pull_request'
+        uses: cachix/cachix-action@v17
+        with:
+          name: zumuvik
+
+      - name: Connect Cachix read-write
+        if: github.event_name != 'pull_request'
         uses: cachix/cachix-action@v17
         with:
           name: zumuvik
           authToken: ${{ secrets.CACHIX_AUTH_TOKEN }}
+
+      - name: Check flake, formatting and linting
+        run: nix flake check --print-build-logs
 
       - name: Build NixOS configuration
         run: |

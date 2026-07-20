@@ -9,7 +9,7 @@
       main = {
         term = "xterm-256color";
         dpi-aware = "yes";
-	font = "JetBrainsMono Nerd Font:size=15";
+        font = "JetBrainsMono Nerd Font:size=15";
         pad = "10x10"; # Внутренние отступы от краев окна, чтобы код не лип
       };
 

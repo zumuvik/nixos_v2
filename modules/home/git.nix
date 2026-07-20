@@ -4,13 +4,13 @@
   programs.git = {
     enable = true;
 
-       settings = {
-       user = {
+    settings = {
+      user = {
         name = "zumuvik";
         email = "toovalvedota2@gmail.com";
-    };
+      };
       push.autoSetupRemote = true;
-      
+
       credential."https://github.com".helper = [
         ""
         "!${pkgs.gh}/bin/gh auth git-credential"

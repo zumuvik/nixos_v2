@@ -44,6 +44,6 @@
     wl-clipboard
     jq
     libnotify
-    
+
   ];
 }

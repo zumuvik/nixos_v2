@@ -1,7 +1,7 @@
 { lib, my, ... }:
 {
   wayland.windowManager.hyprland.settings = {
-   "$mainMod" = "SUPER";
+    "$mainMod" = "SUPER";
     "$terminal" = "footclient";
     "$fileManager" = "Thunar";
     # $sD is defined in exec-once.nix
@@ -17,7 +17,7 @@
       "$mainMod, D, exec, tofi-drun --drun-launch=true"
       "$mainMod, space, togglefloating"
       "SUPER, Tab, workspace, e+1"
-       "SUPER SHIFT, S, exec, /home/zumuvik/.local/bin/screenshot"
+      "SUPER SHIFT, S, exec, /home/zumuvik/.local/bin/screenshot"
       # Window Navigation
       "$mainMod, left, movefocus, l"
       "$mainMod, right, movefocus, r"
@@ -45,7 +45,7 @@
       "$mainMod SHIFT, 7, movetoworkspace, 7"
       "$mainMod SHIFT, 8, movetoworkspace, 8"
       "$mainMod SHIFT, 0, movetoworkspace, 10"
-      ];
+    ];
     bindm = [
       "$mainMod, mouse:272, movewindow"
       "$mainMod, mouse:273, resizewindow"
@@ -68,8 +68,7 @@
       ",XF86AudioStop, exec, playerctl stop"
     ];
 
-
-       binde = [
+    binde = [
       # "$mainMod, mouse_down, workspace, e+1"
       # "$mainMod, mouse_up, workspace, e-1"
     ];

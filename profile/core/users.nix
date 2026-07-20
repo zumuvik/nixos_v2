@@ -1,7 +1,7 @@
 { pkgs, ... }:
 
 {
-  users.groups.zumuvik = {};
+  users.groups.zumuvik = { };
   users.users.zumuvik = {
     isNormalUser = true;
     shell = pkgs.zsh;

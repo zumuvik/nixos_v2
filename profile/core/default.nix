@@ -9,7 +9,7 @@
     ./users.nix # юзер
     ./firewall.nix # не глупый. da
     ./zram.nix # zram сука
-  # ./swap.nix # подкачка типа качок
+    # ./swap.nix # подкачка типа качок
     ./nh.nix # типа никс помощь
   ];
 

@@ -1,4 +1,4 @@
-{ ... }:
+_:
 
 {
   time.timeZone = "Europe/Moscow"; # Укажите свой часовой пояс

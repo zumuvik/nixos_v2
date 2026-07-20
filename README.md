@@ -87,10 +87,9 @@ Personal NixOS configuration for `nixlensk321` and `nixlensk322`.
 ├── flake.lock
 ├── flake.nix
 ├── home.nix
-├── repository-tree.txt
-└── statix.toml
+└── repository-tree.txt
 
-21 directories, 64 files
+21 directories, 63 files
 
 ```
 <!-- TREE:END -->

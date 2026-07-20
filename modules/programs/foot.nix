@@ -6,21 +6,6 @@
     server.enable = false;
 
     settings = {
-      main = {
-        term = "xterm-256color";
-        dpi-aware = "yes";
-        font = "JetBrainsMono Nerd Font:size=15";
-        pad = "10x10"; # Внутренние отступы от краев окна, чтобы код не лип
-      };
-
-      mouse = {
-        hide-when-typing = "yes";
-      };
-
-      scrollback = {
-        lines = 10000;
-      };
-
       # Цветовая схема (по дефолту темная, приятная)
       colors-dark = {
         alpha = "0.95"; # Небольшая прозрачность, если композитор поддерживает
@@ -36,6 +21,18 @@
         regular5 = "bb9af7"; # magenta
         regular6 = "7dcfff"; # cyan
         regular7 = "c0caf5"; # white
+      };
+      main = {
+        dpi-aware = "yes";
+        font = "JetBrainsMono Nerd Font:size=15";
+        pad = "10x10"; # Внутренние отступы от краев окна, чтобы код не лип
+        term = "xterm-256color";
+      };
+      mouse = {
+        hide-when-typing = "yes";
+      };
+      scrollback = {
+        lines = 10000;
       };
     };
   };

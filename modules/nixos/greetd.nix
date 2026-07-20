@@ -1,6 +1,10 @@
 { pkgs, ... }:
 
 {
+  environment.systemPackages = with pkgs; [
+    regreet
+    cage
+  ];
   services.greetd = {
     enable = true;
 
@@ -11,9 +15,4 @@
       };
     };
   };
-
-  environment.systemPackages = with pkgs; [
-    regreet
-    cage
-  ];
 }

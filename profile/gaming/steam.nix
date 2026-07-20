@@ -6,11 +6,10 @@
   ];
 
   programs.steam = {
-    enable = true;
-    package = pkgs.millennium-steam;
-
-    remotePlay.openFirewall = true;
     dedicatedServer.openFirewall = true;
+    enable = true;
     localNetworkGameTransfers.openFirewall = true;
+    package = pkgs.millennium-steam;
+    remotePlay.openFirewall = true;
   };
 }

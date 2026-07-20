@@ -1,11 +1,11 @@
 { pkgs, ... }:
 
 {
+  systemd.tmpfiles.rules = [
+    "Z /etc/nixos 0770 zumuvik zumuvik - -"
+  ];
   users.groups.zumuvik = { };
   users.users.zumuvik = {
-    isNormalUser = true;
-    shell = pkgs.zsh;
-    group = "zumuvik";
     extraGroups = [
       "networkmanager"
       "wheel"
@@ -13,6 +13,8 @@
       "audio"
       "input"
     ]; # Enable ‘sudo’ for the user.
+    group = "zumuvik";
+    isNormalUser = true;
     packages = with pkgs; [
       vscodium
       python3
@@ -22,8 +24,6 @@
       gh
       codex
     ];
+    shell = pkgs.zsh;
   };
-  systemd.tmpfiles.rules = [
-    "Z /etc/nixos 0770 zumuvik zumuvik - -"
-  ];
 }

@@ -2,38 +2,34 @@
 
 {
   programs.zsh = {
+    autosuggestion.enable = true;
     enable = true;
-
     # Автодополнение и умный поиск
     enableCompletion = true;
-    autosuggestion.enable = true;
-    syntaxHighlighting.enable = true;
-
     # История команд
     history = {
-      size = 10000;
-      save = 10000;
-      path = "$HOME/.zsh_history";
       ignoreDups = true; # не сохранять дубликаты подряд
+      path = "$HOME/.zsh_history";
+      save = 10000;
       share = true; # шарить историю между вкладками терминала
+      size = 10000;
     };
-
-    # Твои кастомные алиасы (сокращения)
-    shellAliases = {
-      la = "ls -la";
-      v = "nvim";
-      g = "git";
-    };
-
     # Опции самого Oh My Zsh
     oh-my-zsh = {
       enable = true;
-      theme = "wedisagree"; # популярные: agnostes, bira, candy
       plugins = [
         "sudo" # дважды тыкаешь Esc — подставляет sudo к прошлой команде
         "command-not-found" # подскажет, какой пакет поставить, если команды нет
       ];
+      theme = "wedisagree"; # популярные: agnostes, bira, candy
     };
+    # Твои кастомные алиасы (сокращения)
+    shellAliases = {
+      g = "git";
+      la = "ls -la";
+      v = "nvim";
+    };
+    syntaxHighlighting.enable = true;
 
   };
 }

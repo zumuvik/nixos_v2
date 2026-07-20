@@ -10,85 +10,16 @@
 }:
 
 {
-  imports = [
-    # Include the results of the hardware scan
-    ../../profile/core
-    ../../profile/gaming
-    ../../profile/desktop/phonect.nix
-    ../../modules/nixos
-  ];
-
-  # Use the systemd-boot EFI boot loader.
-  boot.loader.limine.enable = true;
-  boot.loader.efi.canTouchEfiVariables = true;
-  nix.settings.experimental-features = [
-    "nix-command"
-    "flakes"
-  ];
   # Use latest kernel.
   boot.kernelPackages = pkgs.linuxPackages_latest;
-  nixpkgs.config.allowUnfree = true;
-
-  programs.zsh.enable = true;
-  networking.hostName = "nixlensk322";
-
-  # Configure network connections interactively with nmcli or nmtui.
-  #  services.greetd.enable = true;
-  # Set your time zone.
-  programs.hyprland = {
-    enable = true;
-    withUWSM = true;
-    package = pkgs.hyprland; # Вот тут мы говорим NixOS использовать SwayFX вместо обычного Sway
-  };
-  hardware.graphics.enable = true;
-  # Configure network proxy if necessary
-  # networking.proxy.default = "http://user:password@proxy:port/";
-  # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
-
-  programs.throne.tunMode.enable = true;
-  programs.throne.enable = true;
+  boot.loader.efi.canTouchEfiVariables = true;
+  # Use the systemd-boot EFI boot loader.
+  boot.loader.limine.enable = true;
   console = {
     font = "Lat2-Terminus16";
     # keyMap = "us"; # use xkb.options in tty.
   };
-
-  # Enable the X11 windowing system.
-  services.xserver.enable = true;
-  services.xserver.xkb = {
-    layout = "us,ru";
-    variant = "";
-    options = "grp:alt_shift_toggle";
-  };
-
   console.useXkbConfig = true;
-
-  # Configure keymap in X11
-  # services.xserver.xkb.layout = "us";
-  # services.xserver.xkb.options = "eurosign:e,caps:escape";
-
-  # Enable CUPS to print documents.
-  # services.printing.enable = true;
-
-  # Enable sound.
-  #services.pulseaudio.enable = true;
-  # OR
-  security.rtkit.enable = true;
-  services.pipewire = {
-    enable = true;
-    alsa.enable = true;
-    alsa.support32Bit = true;
-    pulse.enable = true; # Эмуляция PulseAudio для совместимости
-    wireplumber.enable = true; # Рекомендуемый менеджер сессий
-  };
-
-  # Enable touchpad support (enabled default in most desktopManager).
-  services.libinput.enable = true;
-
-  # Define a user account. Don't forget to set a password with ‘passwd’.
-
-  programs.firefox.enable = true;
-  security.polkit.enable = true;
-
   # List packages installed in system profile.
   # You can use https://search.nixos.org/ to find more packages (and options).
   environment.systemPackages = with pkgs; [
@@ -102,23 +33,74 @@
     hyprpolkitagent
     nftables
   ];
-
+  hardware.graphics.enable = true;
+  imports = [
+    # Include the results of the hardware scan
+    ../../profile/core
+    ../../profile/gaming
+    ../../profile/desktop/phonect.nix
+    ../../modules/nixos
+  ];
+  networking.hostName = "nixlensk322";
+  nix.settings.experimental-features = [
+    "nix-command"
+    "flakes"
+  ];
+  nixpkgs.config.allowUnfree = true;
+  # Define a user account. Don't forget to set a password with ‘passwd’.
+  programs.firefox.enable = true;
+  # Configure network connections interactively with nmcli or nmtui.
+  #  services.greetd.enable = true;
+  # Set your time zone.
+  programs.hyprland = {
+    enable = true;
+    package = pkgs.hyprland; # Вот тут мы говорим NixOS использовать SwayFX вместо обычного Sway
+    withUWSM = true;
+  };
+  programs.throne.enable = true;
+  # Configure network proxy if necessary
+  # networking.proxy.default = "http://user:password@proxy:port/";
+  # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
+  programs.throne.tunMode.enable = true;
+  programs.zsh.enable = true;
+  security.polkit.enable = true;
+  # Configure keymap in X11
+  # services.xserver.xkb.layout = "us";
+  # services.xserver.xkb.options = "eurosign:e,caps:escape";
+  # Enable CUPS to print documents.
+  # services.printing.enable = true;
+  # Enable sound.
+  #services.pulseaudio.enable = true;
+  # OR
+  security.rtkit.enable = true;
+  # Enable touchpad support (enabled default in most desktopManager).
+  services.libinput.enable = true;
+  services.pipewire = {
+    alsa.enable = true;
+    alsa.support32Bit = true;
+    enable = true;
+    pulse.enable = true; # Эмуляция PulseAudio для совместимости
+    wireplumber.enable = true; # Рекомендуемый менеджер сессий
+  };
+  # Enable the X11 windowing system.
+  services.xserver.enable = true;
+  services.xserver.xkb = {
+    layout = "us,ru";
+    options = "grp:alt_shift_toggle";
+    variant = "";
+  };
   # Some programs nees SUID wrappers, can be configured further or are started in user sessions. programs.mtr.enable = true;
   # programs.gnupg.agent = {
   #   enable = true;
   #   enableSSHSupport = true;
   # };
-
   # List services that you want to enable:
-
   # Enable the OpenSSH daemon.
   # services.openssh.enable = true;
-
   # Copy the NixOS configuration file and link it from the resulting system
   # (/run/current-system/configuration.nix). This is useful in case you
   # accidentally delete configuration.nix.
   # system.copySystemConfiguration = true;
-
   # This option defines the first version of NixOS you have installed on this particular machine,
   # and is used to maintain compatibility with application data (e.g. databases) created on older NixOS versions.
   #

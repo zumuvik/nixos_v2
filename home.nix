@@ -1,32 +1,12 @@
 {
   config,
-  pkgs,
   inputs,
+  pkgs,
   ...
 }:
 {
-  home.username = "zumuvik";
   home.homeDirectory = "/home/zumuvik";
-
-  imports = [
-    ./modules/programs
-    ./profile/desktop
-    ./profile/desktop/hyprland/scripts
-    ./modules/home
-    ./modules/home/opencode
-  ];
-
-  home.stateVersion = "26.11";
-
-  programs.waybar.enable = true;
-  programs.home-manager.enable = true;
-
-  programs.zen-browser = {
-    enable = true;
-  };
-
   # Декларативная настройка VS Code и его расширений
-
   home.packages = with pkgs; [
     # Устанавливаем сам OpenCode (GUI и консольный)
     opencode-desktop
@@ -46,4 +26,18 @@
     libnotify
 
   ];
+  home.stateVersion = "26.11";
+  home.username = "zumuvik";
+  imports = [
+    ./modules/programs
+    ./profile/desktop
+    ./profile/desktop/hyprland/scripts
+    ./modules/home
+    ./modules/home/opencode
+  ];
+  programs.home-manager.enable = true;
+  programs.waybar.enable = true;
+  programs.zen-browser = {
+    enable = true;
+  };
 }

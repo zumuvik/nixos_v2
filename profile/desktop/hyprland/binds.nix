@@ -1,11 +1,10 @@
 { lib, my, ... }:
 {
   wayland.windowManager.hyprland.settings = {
+    "$fileManager" = "Thunar";
     "$mainMod" = "SUPER";
     "$terminal" = "footclient";
-    "$fileManager" = "Thunar";
     # $sD is defined in exec-once.nix
-
     bind = [
       # General
       "$mainMod, Return, exec, $terminal"
@@ -46,11 +45,10 @@
       "$mainMod SHIFT, 8, movetoworkspace, 8"
       "$mainMod SHIFT, 0, movetoworkspace, 10"
     ];
-    bindm = [
-      "$mainMod, mouse:272, movewindow"
-      "$mainMod, mouse:273, resizewindow"
+    binde = [
+      # "$mainMod, mouse_down, workspace, e+1"
+      # "$mainMod, mouse_up, workspace, e-1"
     ];
-
     bindel = [
       ",XF86AudioRaiseVolume, exec, wpctl set-volume -l 1 @DEFAULT_AUDIO_SINK@ 5%+"
       ",XF86AudioLowerVolume, exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-"
@@ -59,7 +57,6 @@
       ",XF86MonBrightnessUp, exec, brightnessctl -e4 -n2 set 5%+"
       ",XF86MonBrightnessDown, exec, brightnessctl -e4 -n2 set 5%-"
     ];
-
     bindl = [
       ",XF86AudioNext, exec, playerctl next"
       ",XF86AudioPause, exec, playerctl play-pause"
@@ -67,10 +64,9 @@
       ",XF86AudioPrev, exec, playerctl previous"
       ",XF86AudioStop, exec, playerctl stop"
     ];
-
-    binde = [
-      # "$mainMod, mouse_down, workspace, e+1"
-      # "$mainMod, mouse_up, workspace, e-1"
+    bindm = [
+      "$mainMod, mouse:272, movewindow"
+      "$mainMod, mouse:273, resizewindow"
     ];
   };
 }

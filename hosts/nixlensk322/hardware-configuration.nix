@@ -4,16 +4,13 @@
 {
   config,
   lib,
-  pkgs,
   modulesPath,
+  pkgs,
   ...
 }:
 
 {
-  imports = [
-    (modulesPath + "/installer/scan/not-detected.nix")
-  ];
-
+  boot.extraModulePackages = [ ];
   boot.initrd.availableKernelModules = [
     "xhci_pci"
     "ahci"
@@ -21,13 +18,10 @@
   ];
   boot.initrd.kernelModules = [ ];
   boot.kernelModules = [ "kvm-intel" ];
-  boot.extraModulePackages = [ ];
-
   fileSystems."/" = {
     device = "/dev/disk/by-uuid/1616be04-4e5a-4e55-a2b4-22d5436ebf13";
     fsType = "btrfs";
   };
-
   fileSystems."/boot" = {
     device = "/dev/disk/by-uuid/10D0-D429";
     fsType = "vfat";
@@ -36,9 +30,10 @@
       "dmask=0022"
     ];
   };
-
-  swapDevices = [ ];
-
-  nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
   hardware.cpu.intel.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
+  imports = [
+    (modulesPath + "/installer/scan/not-detected.nix")
+  ];
+  nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
+  swapDevices = [ ];
 }

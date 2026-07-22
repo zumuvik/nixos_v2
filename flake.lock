@@ -61,6 +61,26 @@
         "type": "github"
       }
     },
+    "lavis": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1784721130,
+        "narHash": "sha256-oapa+qL9oe9z2mCW74eC1SNs8yG5i5iV9x+lWuVFkiI=",
+        "owner": "zumuvik",
+        "repo": "lavis",
+        "rev": "4e1680bee2d7c86c161445b31a5164a2a498905d",
+        "type": "github"
+      },
+      "original": {
+        "owner": "zumuvik",
+        "repo": "lavis",
+        "type": "github"
+      }
+    },
     "millennium": {
       "inputs": {
         "millennium-src": "millennium-src",
@@ -157,6 +177,7 @@
       "inputs": {
         "codebase-memory-mcp": "codebase-memory-mcp",
         "home-manager": "home-manager",
+        "lavis": "lavis",
         "millennium": "millennium",
         "nixpkgs": "nixpkgs",
         "phonect": "phonect",

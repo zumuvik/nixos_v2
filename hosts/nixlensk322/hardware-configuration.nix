@@ -10,14 +10,18 @@
 }:
 
 {
-  boot.extraModulePackages = [ ];
-  boot.initrd.availableKernelModules = [
-    "xhci_pci"
-    "ahci"
-    "nvme"
-  ];
-  boot.initrd.kernelModules = [ ];
-  boot.kernelModules = [ "kvm-intel" ];
+  boot = {
+    extraModulePackages = [ ];
+    initrd = {
+      availableKernelModules = [
+        "xhci_pci"
+        "ahci"
+        "nvme"
+      ];
+      kernelModules = [ ];
+    };
+    kernelModules = [ "kvm-intel" ];
+  };
   fileSystems."/" = {
     device = "/dev/disk/by-uuid/1616be04-4e5a-4e55-a2b4-22d5436ebf13";
     fsType = "btrfs";

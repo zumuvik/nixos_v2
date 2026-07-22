@@ -10,6 +10,10 @@
       inputs.nixpkgs.follows = "nixpkgs";
       url = "github:nix-community/home-manager";
     };
+    lavis = {
+      inputs.nixpkgs.follows = "nixpkgs";
+      url = "github:zumuvik/lavis";
+    };
     millennium = {
       inputs.nixpkgs.follows = "nixpkgs";
       url = "github:SteamClientHomebrew/Millennium?dir=packages/nix";
@@ -85,6 +89,7 @@
 
               touch "$out"
             '';
+        lavis = inputs.lavis.packages.${system}.default;
         nixfmt =
           pkgs.runCommand "nixfmt-check"
             {

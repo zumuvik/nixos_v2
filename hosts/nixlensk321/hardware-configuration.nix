@@ -10,17 +10,21 @@
 }:
 
 {
-  boot.extraModulePackages = [ ];
-  boot.initrd.availableKernelModules = [
-    "nvme"
-    "xhci_pci"
-    "ahci"
-    "usb_storage"
-    "usbhid"
-    "sd_mod"
-  ];
-  boot.initrd.kernelModules = [ ];
-  boot.kernelModules = [ "kvm-amd" ];
+  boot = {
+    extraModulePackages = [ ];
+    initrd = {
+      availableKernelModules = [
+        "nvme"
+        "xhci_pci"
+        "ahci"
+        "usb_storage"
+        "usbhid"
+        "sd_mod"
+      ];
+      kernelModules = [ ];
+    };
+    kernelModules = [ "kvm-amd" ];
+  };
   fileSystems."/" = {
     device = "/dev/disk/by-uuid/31b45e9f-01b4-4799-897c-7c54df35f6c7";
     fsType = "btrfs";

@@ -2,6 +2,45 @@
 
 Personal NixOS configuration for `nixlensk321` and `nixlensk322`.
 
+## Lavis
+
+### First run
+
+```sh
+install -d -m 700 ~/.config/lavis
+
+umask 077
+cat > ~/.config/lavis/env <<'EOF'
+LAVIS_API_ID=your-api-id
+LAVIS_API_HASH=your-api-hash
+EOF
+
+chmod 600 ~/.config/lavis/env
+
+systemctl --user stop lavis.service
+lavis-auth
+```
+
+### After successful Telegram authorization
+
+```sh
+# Ctrl+C
+systemctl --user start lavis.service
+systemctl --user status lavis.service
+```
+
+### Reauthorization
+
+```sh
+systemctl --user stop lavis.service
+lavis-auth
+systemctl --user start lavis.service
+```
+
+The session is stored in `$XDG_STATE_HOME/lavis/session` or
+`$HOME/.local/state/lavis/session` and is not uploaded to GitHub Actions or
+Cachix.
+
 <!-- TREE:START -->
 ```nix
 .

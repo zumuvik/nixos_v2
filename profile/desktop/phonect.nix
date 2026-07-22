@@ -10,10 +10,12 @@
   services.phonect = {
     enable = true;
     settings = {
-      daemon.listen_host = "0.0.0.0";
-      daemon.listen_port = 9876;
-      daemon.poll_interval = 0.3;
-      daemon.poll_timeout = 15.0;
+      daemon = {
+        listen_host = "0.0.0.0";
+        listen_port = 9876;
+        poll_interval = 0.3;
+        poll_timeout = 15.0;
+      };
       device.pc_name = "my-laptop";
       device.unlock_on_start = false;
       keys.private_key = "/home/zumuvik/.config/phonect/pc_private.pem";

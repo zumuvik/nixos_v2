@@ -11,10 +11,14 @@
 
 {
   # Use latest kernel.
-  boot.kernelPackages = pkgs.linuxPackages_latest;
-  boot.loader.efi.canTouchEfiVariables = true;
-  # Use the systemd-boot EFI boot loader.
-  boot.loader.limine.enable = true;
+  boot = {
+    kernelPackages = pkgs.linuxPackages_latest;
+    loader = {
+      efi.canTouchEfiVariables = true;
+      # Use the systemd-boot EFI boot loader.
+      limine.enable = true;
+    };
+  };
   console = {
     font = "Lat2-Terminus16";
     # keyMap = "us"; # use xkb.options in tty.
@@ -48,21 +52,23 @@
   ];
   nixpkgs.config.allowUnfree = true;
   # Define a user account. Don't forget to set a password with ‘passwd’.
-  programs.firefox.enable = true;
-  # Configure network connections interactively with nmcli or nmtui.
-  #  services.greetd.enable = true;
-  # Set your time zone.
-  programs.hyprland = {
-    enable = true;
-    package = pkgs.hyprland; # Вот тут мы говорим NixOS использовать SwayFX вместо обычного Sway
-    withUWSM = true;
+  programs = {
+    firefox.enable = true;
+    # Configure network connections interactively with nmcli or nmtui.
+    #  services.greetd.enable = true;
+    # Set your time zone.
+    hyprland = {
+      enable = true;
+      package = pkgs.hyprland; # Вот тут мы говорим NixOS использовать SwayFX вместо обычного Sway
+      withUWSM = true;
+    };
+    throne.enable = true;
+    # Configure network proxy if necessary
+    # networking.proxy.default = "http://user:password@proxy:port/";
+    # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
+    throne.tunMode.enable = true;
+    zsh.enable = true;
   };
-  programs.throne.enable = true;
-  # Configure network proxy if necessary
-  # networking.proxy.default = "http://user:password@proxy:port/";
-  # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
-  programs.throne.tunMode.enable = true;
-  programs.zsh.enable = true;
   security.polkit.enable = true;
   # Configure keymap in X11
   # services.xserver.xkb.layout = "us";
@@ -74,20 +80,24 @@
   # OR
   security.rtkit.enable = true;
   # Enable touchpad support (enabled default in most desktopManager).
-  services.libinput.enable = true;
-  services.pipewire = {
-    alsa.enable = true;
-    alsa.support32Bit = true;
-    enable = true;
-    pulse.enable = true; # Эмуляция PulseAudio для совместимости
-    wireplumber.enable = true; # Рекомендуемый менеджер сессий
-  };
-  # Enable the X11 windowing system.
-  services.xserver.enable = true;
-  services.xserver.xkb = {
-    layout = "us,ru";
-    options = "grp:alt_shift_toggle";
-    variant = "";
+  services = {
+    libinput.enable = true;
+    pipewire = {
+      alsa.enable = true;
+      alsa.support32Bit = true;
+      enable = true;
+      pulse.enable = true; # Эмуляция PulseAudio для совместимости
+      wireplumber.enable = true; # Рекомендуемый менеджер сессий
+    };
+    # Enable the X11 windowing system.
+    xserver = {
+      enable = true;
+      xkb = {
+        layout = "us,ru";
+        options = "grp:alt_shift_toggle";
+        variant = "";
+      };
+    };
   };
   # Some programs nees SUID wrappers, can be configured further or are started in user sessions. programs.mtr.enable = true;
   # programs.gnupg.agent = {

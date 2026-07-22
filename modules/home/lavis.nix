@@ -14,6 +14,7 @@ let
       fi
 
       set -a
+      # shellcheck disable=SC1090
       . "$config_file"
       set +a
 

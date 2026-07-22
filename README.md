@@ -65,7 +65,8 @@ Cachix.
 │   │   │   ├── codebase-mcp.nix
 │   │   │   └── default.nix
 │   │   ├── default.nix
-│   │   └── git.nix
+│   │   ├── git.nix
+│   │   └── lavis.nix
 │   ├── nixos
 │   │   ├── android
 │   │   │   └── android-tools.nix
@@ -128,7 +129,7 @@ Cachix.
 ├── home.nix
 └── repository-tree.txt
 
-21 directories, 63 files
+21 directories, 64 files
 
 ```
 <!-- TREE:END -->

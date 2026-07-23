@@ -7,11 +7,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1784771572,
-        "narHash": "sha256-dLFp0eAwXTKDmPJDvwZQRgOU3JRuuvx36IRJ1ekCK8k=",
+        "lastModified": 1784793225,
+        "narHash": "sha256-PX0UC7vYKwphdvQOE7936NRQQt+900IuujH1W4LluD8=",
         "owner": "DeusData",
         "repo": "codebase-memory-mcp",
-        "rev": "dc7178c8dc91bd14098add339c5d37087d88c9bf",
+        "rev": "5e7d3eb77e355179d07ff5236bd5bcda4448b81c",
         "type": "github"
       },
       "original": {
@@ -27,11 +27,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1784725727,
-        "narHash": "sha256-J5+C9wsO0lhDyUalQzfplDbRjyHDYeEH5+9sdyXtwa8=",
+        "lastModified": 1784789275,
+        "narHash": "sha256-cgRTWuG+u1tBPhm01JrId2k0Bni09phVJ1Q0BZlRd7M=",
         "owner": "nix-community",
         "repo": "home-manager",
-        "rev": "041a999e8c1c5b731913855909e68d30ca69b8e0",
+        "rev": "3b0e6bbd65869af1beadf5963a99befc179d209f",
         "type": "github"
       },
       "original": {
@@ -68,11 +68,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1784721130,
-        "narHash": "sha256-oapa+qL9oe9z2mCW74eC1SNs8yG5i5iV9x+lWuVFkiI=",
+        "lastModified": 1784796539,
+        "narHash": "sha256-5i2C+8BD3ffAnvsEv2qTtR2y3A+ukeJSoyh1UwOPjwE=",
         "owner": "zumuvik",
         "repo": "lavis",
-        "rev": "4e1680bee2d7c86c161445b31a5164a2a498905d",
+        "rev": "609cb39e409dfc6269e35fb57cf9955abd6c3649",
         "type": "github"
       },
       "original": {

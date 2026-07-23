@@ -2,6 +2,34 @@
 
 Personal NixOS configuration for `nixlensk321` and `nixlensk322`.
 
+## Development
+
+Enter the development shell once to install the repository pre-commit hook:
+
+```sh
+nix develop
+```
+
+Format every tracked Nix file:
+
+```sh
+nix fmt
+```
+
+The explicit repository formatter is also available as:
+
+```sh
+nix run .#format
+```
+
+Run formatting, dead-code and static-analysis checks once for the whole repository:
+
+```sh
+nix flake check --print-build-logs
+```
+
+CI runs the shared checks once, then builds `nixlensk321` and `nixlensk322` in a separate matrix.
+
 ## Lavis
 
 ### First run

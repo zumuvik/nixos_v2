@@ -19,8 +19,31 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
+  check:
+    name: Check flake
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v6
+
+      - name: Install Nix
+        uses: cachix/install-nix-action@v31
+        with:
+          github_access_token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Connect Cachix read-only
+        uses: cachix/cachix-action@v17
+        with:
+          name: zumuvik
+
+      - name: Check flake, formatting and linting
+        run: nix flake check --print-build-logs
+
   build:
     name: Build ${{ matrix.host }}
+    needs: check
     runs-on: ubuntu-latest
     timeout-minutes: 120
 
@@ -53,9 +76,6 @@ jobs:
         with:
           name: zumuvik
           authToken: ${{ secrets.CACHIX_AUTH_TOKEN }}
-
-      - name: Check flake, formatting and linting
-        run: nix flake check --print-build-logs
 
       - name: Build NixOS configuration
         run: |

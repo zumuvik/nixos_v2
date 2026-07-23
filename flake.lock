@@ -68,11 +68,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1784796539,
-        "narHash": "sha256-5i2C+8BD3ffAnvsEv2qTtR2y3A+ukeJSoyh1UwOPjwE=",
+        "lastModified": 1784815204,
+        "narHash": "sha256-IpIL25Ay+oD1JUTJFzTUpBq2L8N0DOsVCYvoLncyEu4=",
         "owner": "zumuvik",
         "repo": "lavis",
-        "rev": "609cb39e409dfc6269e35fb57cf9955abd6c3649",
+        "rev": "806b6590e29293bba14aefbfc899dd8cf3457599",
         "type": "github"
       },
       "original": {
